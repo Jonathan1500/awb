@@ -17,6 +17,9 @@ class LanCargoResource extends Resource
 {
     protected static ?string $model = LanCargo::class;
 
+    protected static ?string $navigationLabel = 'LAN CARGO';
+    protected static ?string $title = 'LAN CARGO';
+    protected static ?string $slug = 'lan-cargo';
     protected static ?string $navigationGroup = 'Aereolíneas';
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     protected static ?int $navigationSort = 3;

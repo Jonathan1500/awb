@@ -17,6 +17,9 @@ class AviancaResource extends Resource
 {
     protected static ?string $model = Avianca::class;
 
+    protected static ?string $navigationLabel = 'Avianca';
+    protected static ?string $title = 'Avianca';
+    protected static ?string $slug = 'avianca';
     protected static ?string $navigationGroup = 'Aereolíneas';
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     protected static ?int $navigationSort = 3;

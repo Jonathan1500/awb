@@ -17,6 +17,7 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use pxlrbt\FilamentSpotlight\SpotlightPlugin;
 use Shanerbaner82\PanelRoles\PanelRoles;
 
 class PersonalPanelProvider extends PanelProvider
@@ -56,6 +57,7 @@ class PersonalPanelProvider extends PanelProvider
             ])
             ->plugins([
                 \BezhanSalleh\FilamentShield\FilamentShieldPlugin::make(),
+                SpotlightPlugin::make(),
                 PanelRoles::make()
                 ->roleToAssign('panel_user')
                 ->restrictedRoles(['panel_user']),

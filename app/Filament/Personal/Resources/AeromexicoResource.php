@@ -18,6 +18,9 @@ class AeromexicoResource extends Resource
 {
     protected static ?string $model = Aeromexico::class;
 
+    protected static ?string $navigationLabel = 'AeroMexico';
+    protected static ?string $title = 'AeroMexico';
+    protected static ?string $slug = 'aeromexico';
     protected static ?string $navigationGroup = 'Aereolíneas';
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     protected static ?int $navigationSort = 3;

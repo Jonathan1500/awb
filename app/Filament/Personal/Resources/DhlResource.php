@@ -18,6 +18,9 @@ class DhlResource extends Resource
 {
     protected static ?string $model = Dhl::class;
 
+    protected static ?string $navigationLabel = 'DHL';
+    protected static ?string $title = 'DHL';
+    protected static ?string $slug = 'dhl';
     protected static ?string $navigationGroup = 'Aereolíneas';
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     protected static ?int $navigationSort = 3;

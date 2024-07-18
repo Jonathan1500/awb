@@ -18,6 +18,9 @@ class UpsCargoResource extends Resource
 {
     protected static ?string $model = UpsCargo::class;
 
+    protected static ?string $navigationLabel = 'UPS CARGO';
+    protected static ?string $title = 'UPS CARGO';
+    protected static ?string $slug = 'ups-cargo';
     protected static ?string $navigationGroup = 'Aereolíneas';
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
     protected static ?int $navigationSort = 3;

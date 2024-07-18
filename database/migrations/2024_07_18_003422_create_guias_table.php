@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('guia');
             $table->string('aereolinea');
-            $table->boolean('status')->default(true);
+            $table->boolean('status')->default(true)->nullable();
             $table->timestamps();
         });
     }

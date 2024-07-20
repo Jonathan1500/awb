@@ -5,6 +5,7 @@ namespace App\Filament\Personal\Resources;
 use App\Filament\Personal\Resources\AviancaResource\Pages;
 use App\Filament\Personal\Resources\AviancaResource\RelationManagers;
 use App\Models\Avianca;
+use App\Models\Guias;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -47,9 +48,14 @@ class AviancaResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('numero_de_air_waybill')
-                    ->required()
-                    ->maxLength(255),
+                Forms\Components\Select::make('numero_de_air_waybill')
+                ->searchable()
+                ->required()
+                ->live()
+                ->label('Número de Air Waybill')
+                ->getSearchResultsUsing(fn (string $search): array => Guias::where('guia', 'like', "%{$search}%")->where('aereolinea', 'like', 'AEROMEXICO')->where('status', 'like', 1)->limit(50)->pluck('guia', 'guia')->toArray())
+                ->getOptionLabelUsing(fn ($value): ?string => Guias::find($value)?->name),
+
                 Forms\Components\DatePicker::make('reservation_date')
                     ->required(),
                 Forms\Components\DatePicker::make('airline_delivery')

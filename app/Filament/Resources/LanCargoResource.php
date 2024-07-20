@@ -33,13 +33,18 @@ class LanCargoResource extends Resource
                     ->searchable()
                     ->required()
                     ->live()
+                    ->disabledOn('edit')
                     ->label('Número de Air Waybill')
-                    ->getSearchResultsUsing(fn (string $search): array => Guias::where('guia', 'like', "%{$search}%")->where('aereolinea', 'like', 'AEROMEXICO')->where('status', 'like', 1)->limit(50)->pluck('guia', 'guia')->toArray())
+                    ->getSearchResultsUsing(fn (string $search): array => Guias::where('guia', 'like', "%{$search}%")->where('aereolinea', 'like', 'LAN_CARGO')->where('status', 'like', 1)->limit(50)->pluck('guia', 'guia')->toArray())
                     ->getOptionLabelUsing(fn ($value): ?string => Guias::find($value)?->name),
 
                 Forms\Components\DatePicker::make('reservation_date')
+                ->native(false)
+                ->displayFormat('d/m/Y')
                     ->required(),
                 Forms\Components\DatePicker::make('airline_delivery')
+                ->native(false)
+                ->displayFormat('d/m/Y')
                     ->required(),
                 Forms\Components\TextInput::make('shipper')
                     ->required()

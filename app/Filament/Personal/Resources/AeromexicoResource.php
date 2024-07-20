@@ -57,8 +57,12 @@ class AeromexicoResource extends Resource
                 ->getOptionLabelUsing(fn ($value): ?string => Guias::find($value)?->name),
 
                 Forms\Components\DatePicker::make('reservation_date')
+                ->native(false)
+                ->displayFormat('d/m/Y')
                     ->required(),
                 Forms\Components\DatePicker::make('airline_delivery')
+                ->native(false)
+                ->displayFormat('d/m/Y')
                     ->required(),
                 Forms\Components\TextInput::make('shipper')
                     ->required()

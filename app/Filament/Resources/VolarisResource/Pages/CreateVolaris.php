@@ -12,18 +12,12 @@ class CreateVolaris extends CreateRecord
 {
     protected static string $resource = VolarisResource::class;
 
-    protected function handleRecordCreation(array $data): Model
+    protected function mutateFormDataBeforeCreate(array $data): array
     {
-
         $numberAirWaybill = $data["numero_de_air_waybill"];
 
-        Guias::where('id',$numberAirWaybill)->update(['status'=> 0]);
+        Guias::where('guia',$numberAirWaybill)->update(['status'=> 0]);
 
-        $record =  static::getModel()::create($data);
-        $record->create($data);
-
-        return $record;
-
-
+        return $data;
     }
 }

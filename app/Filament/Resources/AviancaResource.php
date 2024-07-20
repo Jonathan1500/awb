@@ -34,7 +34,7 @@ class AviancaResource extends Resource
                     ->required()
                     ->live()
                     ->label('Número de Air Waybill')
-                    ->getSearchResultsUsing(fn (string $search): array => Guias::where('guia', 'like', "%{$search}%")->where('aereolinea', 'like', 'AVIANCA')->where('status', 'like', 1)->limit(50)->pluck('guia', 'id')->toArray())
+                    ->getSearchResultsUsing(fn (string $search): array => Guias::where('guia', 'like', "%{$search}%")->where('aereolinea', 'like', 'AEROMEXICO')->where('status', 'like', 1)->limit(50)->pluck('guia', 'guia')->toArray())
                     ->getOptionLabelUsing(fn ($value): ?string => Guias::find($value)?->name),
 
             Forms\Components\DatePicker::make('reservation_date')

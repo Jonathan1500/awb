@@ -1,20 +1,19 @@
 <?php
 
-namespace App\Filament\Personal\Resources\AeromexicoResource\Pages;
+namespace App\Filament\Personal\Resources\PerfectCargoLogisticsResource\Pages;
 
-use App\Filament\Personal\Resources\AeromexicoResource;
+use App\Filament\Personal\Resources\PerfectCargoLogisticsResource;
 use App\Models\Guias;
+use App\Models\User;
 use Filament\Actions;
+use Filament\Notifications\Notification;
 use Filament\Resources\Pages\CreateRecord;
 use Illuminate\Support\Facades\Auth;
-use App\Models\User;
-use Filament\Notifications\Notification;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Validation\ValidationException;
 
-class CreateAeromexico extends CreateRecord
+class CreatePerfectCargoLogistics extends CreateRecord
 {
-    protected static string $resource = AeromexicoResource::class;
+    protected static string $resource = PerfectCargoLogisticsResource::class;
 
     protected function mutateFormDataBeforeCreate(array $data): array
     {
@@ -53,6 +52,4 @@ class CreateAeromexico extends CreateRecord
     {
         return $this->getResource()::getUrl('index');
     }
-
-
 }

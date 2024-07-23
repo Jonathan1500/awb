@@ -63,7 +63,6 @@ class DhlResource extends Resource
                     ->relationship(name: 'user', titleAttribute: 'name')
                     ->required(),
                 Forms\Components\TextInput::make('no_available')
-                    ->required()
                     ->maxLength(255),
             ]);
     }

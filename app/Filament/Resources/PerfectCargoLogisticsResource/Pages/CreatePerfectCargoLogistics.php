@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Filament\Resources\CopaAirlinesResource\Pages;
+namespace App\Filament\Resources\PerfectCargoLogisticsResource\Pages;
 
-use App\Filament\Resources\CopaAirlinesResource;
+use App\Filament\Resources\PerfectCargoLogisticsResource;
 use App\Models\Guias;
 use Filament\Actions;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\CreateRecord;
 use Illuminate\Validation\ValidationException;
 
-class CreateCopaAirlines extends CreateRecord
+class CreatePerfectCargoLogistics extends CreateRecord
 {
-    protected static string $resource = CopaAirlinesResource::class;
+    protected static string $resource = PerfectCargoLogisticsResource::class;
 
     protected function mutateFormDataBeforeCreate(array $data): array
     {
@@ -42,6 +42,7 @@ class CreateCopaAirlines extends CreateRecord
 
             return $data;
     }
+
 
     protected function getRedirectUrl(): string
     {

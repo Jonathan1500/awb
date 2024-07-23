@@ -5,8 +5,9 @@ namespace App\Filament\Resources\DhlResource\Pages;
 use App\Filament\Resources\DhlResource;
 use App\Models\Guias;
 use Filament\Actions;
+use Filament\Notifications\Notification;
 use Filament\Resources\Pages\CreateRecord;
-
+use Illuminate\Validation\ValidationException;
 
 class CreateDhl extends CreateRecord
 {
@@ -14,11 +15,32 @@ class CreateDhl extends CreateRecord
 
     protected function mutateFormDataBeforeCreate(array $data): array
     {
+
+
+
         $numberAirWaybill = $data["numero_de_air_waybill"];
 
-        Guias::where('guia',$numberAirWaybill)->update(['status'=> 0]);
+        $not_unique = Guias::where([
+                    ['guia','=', $numberAirWaybill],
+                    ['status', '=', 0]
+        ])->exists();
 
-        return $data;
+
+
+        if ($not_unique) {
+            Notification::make()
+                ->title('La Guia ya esta seleccionada, intenta con otra.')
+                ->danger()
+                ->send();
+
+                throw ValidationException::withMessages(['La Guia ya esta seleccionada, intenta con otra.']);
+        }
+
+
+
+            Guias::where('guia',$numberAirWaybill)->update(['status'=> 0]);
+
+            return $data;
     }
 
     protected function getRedirectUrl(): string

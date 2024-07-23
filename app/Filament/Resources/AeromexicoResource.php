@@ -42,12 +42,12 @@ class AeromexicoResource extends Resource
 
 
                 Forms\Components\DatePicker::make('reservation_date')
-                ->native(false)
-                ->displayFormat('d/m/Y')
-                ->required(),
+                    ->native(false)
+                    ->displayFormat('d/m/Y')
+                    ->required(),
                 Forms\Components\DatePicker::make('airline_delivery')
-                ->native(false)
-                ->displayFormat('d/m/Y')
+                    ->native(false)
+                    ->displayFormat('d/m/Y')
                     ->required(),
                 Forms\Components\TextInput::make('shipper')
                     ->required()
@@ -65,7 +65,6 @@ class AeromexicoResource extends Resource
                     ->relationship(name: 'user', titleAttribute: 'name')
                     ->required(),
                 Forms\Components\TextInput::make('no_available')
-                    ->required()
                     ->maxLength(255),
             ]);
     }

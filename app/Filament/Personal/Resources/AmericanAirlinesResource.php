@@ -71,8 +71,7 @@ class AmericanAirlinesResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('no_available')
-                    ->required()
-                    ->maxLength(255),
+                ->maxLength(255),
             ]);
     }
 
